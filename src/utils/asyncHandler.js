@@ -1,3 +1,7 @@
+//This is a helper file or a wrapper that handles asynchronous operations. We can handle requests and
+//respones using this file. By using this file we don't need try catch in api's. 
+
+//Method 1:
 //How to create a higher order Function:
 //const asyncHandler = () => {}
 //const asyncHandler = (func) => () => {}
@@ -14,10 +18,11 @@
 //             })
 //         }
 //     }
+
+//Method 2:
 const asyncHandler = (requestHandler) => {
-    (err, req, res, next) => {
-      Promise.resolve(requestHandler(err, req, res, next))
-      .catch((err) => next(err))
+  return (req, res, next) => {
+      Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
     }
 }
 export {asyncHandler};
