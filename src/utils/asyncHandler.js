@@ -1,5 +1,6 @@
 //This is a helper file or a wrapper that handles asynchronous operations. We can handle requests and
 //respones using this file. By using this file we don't need try catch in api's. 
+//AsyncHandler is used to handle web requests.
 
 //Method 1:
 //How to create a higher order Function:
