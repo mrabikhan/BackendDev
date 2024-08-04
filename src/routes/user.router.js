@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { changeCurrentPassword, getCurrentUser, loginUser, logoutUser, refreshTheAccessToken, registerUser } from "../controllers/register.controller.js";
+import { getCurrentUserProfile, changeCurrentPassword, getCurrentUser, loginUser, logoutUser, refreshTheAccessToken, registerUser } from "../controllers/register.controller.js";
 import { upload } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
@@ -28,6 +28,7 @@ router.route("/register").post(
     router.route("/refresh-token").post(refreshTheAccessToken)
     router.route("/get-current-user").post(verifyJWT,getCurrentUser)
     router.route("/change-password").post(verifyJWT, changeCurrentPassword) 
+    router.route("/user-profile").post(verifyJWT,getCurrentUserProfile)
     
 //https:localhost:8000/api/v1/users/register
 
